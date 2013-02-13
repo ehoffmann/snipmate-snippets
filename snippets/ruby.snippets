@@ -934,8 +934,32 @@ snippet subj
 	subject { ${1} }
 snippet spec
 	specify { subject.${1} }
-# capybara
-snippet cfeat
-	feature "${1:feat_name}" do
+# capybara acceptance DSL
+snippet fea
+	feature "${1:feature_name}" do
 		${2}
 	end
+snippet scn
+	scenario "${1:scenario_name}" do
+		${2}
+	end
+snippet giv
+	given(:$1) { $2 }
+snippet giv!
+	given!(:$1) { $2 }
+snippet bac
+	background do
+		$1
+	end
+# capybara DSL
+snippet vis
+	visit $1_path
+snippet vis'
+	visit '$1'
+snippet clil
+	click_link '$1'
+snippet clib
+	click_button '$1'
+snippet psh
+	page.should have_content '$1'
+	
