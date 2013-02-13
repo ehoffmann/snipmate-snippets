@@ -945,6 +945,10 @@ snippet scn
 	scenario "${1:scenario_name}" do
 		${2}
 	end
+snippet scnp
+	scenario "${1:scenario_name}"
+	${2}
+
 snippet giv
 	given(:${1}) { ${2} }
 snippet giv!
@@ -964,4 +968,7 @@ snippet clib
 	click_button '${1}'
 snippet psh
 	page.should have_content '${1}'
-	
+snippet wi
+	within("${1}") do
+		${2}
+	end
