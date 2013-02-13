@@ -946,22 +946,22 @@ snippet scn
 		${2}
 	end
 snippet giv
-	given(:$1) { $2 }
+	given(:${1}) { ${2} }
 snippet giv!
-	given!(:$1) { $2 }
+	given!(:{$1}) { ${2} }
 snippet bac
 	background do
-		$1
+		${1}
 	end
 # capybara DSL
 snippet vis
-	visit $1_path
+	visit ${1}_path
 snippet vis'
-	visit '$1'
+	visit '${1}'
 snippet clil
-	click_link '$1'
+	click_link '${1}'
 snippet clib
-	click_button '$1'
+	click_button '${1}'
 snippet psh
-	page.should have_content '$1'
+	page.should have_content '${1}'
 	
