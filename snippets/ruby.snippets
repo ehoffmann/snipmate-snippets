@@ -936,44 +936,13 @@ snippet subj
 	subject { ${1} }
 snippet spec
 	specify { subject.${1} }
-# capybara acceptance DSL
-snippet fea
-	feature "${1:feature_name}" do
-		${2}
-	end
-snippet scn
-	scenario "${1:scenario_name}" do
-		${2}
-	end
-snippet scnp
-	scenario "${1:scenario_name}"
-	${2}
-
-snippet giv
-	given(:${1}) { ${2} }
-snippet giv!
-	given!(:${1}) { ${2} }
-snippet bac
-	background do
-		${1}
-	end
-# capybara DSL
-snippet vis
-	visit ${1}_path
-snippet vis'
-	visit '${1}'
-snippet clil
-	click_link '${1}'
-snippet clib
-	click_button '${1}'
-snippet psh
-	page.should have_content '${1}'
-snippet wi
-	within("${1}") do
-		${2}
-	end
-snippet sao
-	save_and_open_page
-snippet fill
-	fill_in '${1}', with:  '${2}'
-	${3}
+snippet exp
+	expect(${1:object}).to ${2}
+snippet bt
+	be_true
+snippet bf
+	be_false
+snippet shared
+	shared_examples "${1:shared examples name}" ${2}
+snippet itb
+	it_behaves_like "${1:shared examples name}"${2}
