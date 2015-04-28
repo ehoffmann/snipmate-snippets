@@ -44,7 +44,10 @@ snippet ci_model_crudl
 
 		public function create($data)
 		{
-			return $this->db->get($this->table)->result();
+			if($this->db->insert($this->table, $data))
+				return true;
+			else
+				return false;
 		}
 
 		public function read($id)
@@ -54,7 +57,7 @@ snippet ci_model_crudl
 
 		public function update($id, $data)
 		{
-			if($this->db->insert($this->table, $data))
+			if($this->db->update($this->table, $data, array('id' => $id)))
 				return true;
 			else
 				return false;
@@ -62,11 +65,16 @@ snippet ci_model_crudl
 
 		public function delete($id)
 		{
-			if($this->db->where('id', $id)->update($this->table, $data))
-				return true;
+			if(is_array($id))
+			{
+				$this->db->trans_start();
+				foreach($id as $elem)
+					$this->db->delete($this->table, array('id' => $elem));
+				$this->db->trans_complete();
+			}
 			else
 			{
-				if($this->db->delete($table, array('id' => $id)))
+				if($this->db->delete($this->table, array('id' => $id)))
 					return true;
 				else
 					return false;
@@ -77,7 +85,7 @@ snippet ci_model_crudl
 		{
 			if(!is_null($limit))
 				$this->db->limit($limit, $offset);
-			return $this->db->get($table)->result();
+			return $this->db->get($this->table)->result();
 		}
 	}
 # Load view
