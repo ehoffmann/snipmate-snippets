@@ -1,1 +1,15 @@
+<<<<<<< HEAD
 *.pyc
+=======
+<<<<<<< HEAD
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+=======
+*.pyc
+>>>>>>> 1327c1ba54c8c367995b536b8cb7d8e7cc7c4c03
+>>>>>>> ea3279d6e126c72e1288bab1a99425a63183c9ad
